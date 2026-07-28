@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANANT SHANKHDHAR — AI Receptionist & Business Communication Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2430;
+    --paper:#f4f5f3;
+    --card:#ffffff;
+    --line:#dfe2de;
+    --signal:#c9761a;
+    --signal-soft:#fbe9d4;
+    --muted:#5b6470;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    line-height:1.15;
+    margin:0 0 .5em;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header.site{
+    border-bottom:1px solid var(--line);
+    padding:36px 0 28px;
+  }
+  header.site .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;}
+  .brand h1{font-size:1.5rem;letter-spacing:-.01em;}
+  .brand p{margin:0;color:var(--muted);font-size:.95rem;}
+  nav.top a{color:var(--ink);text-decoration:none;font-size:.9rem;margin-left:18px;}
+  nav.top a:hover{color:var(--signal);}
+
+  section{padding:52px 0;}
+  section.hero{padding-top:56px;}
+  .eyebrow{
+    display:inline-block;
+    font-size:.78rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--signal);
+    background:var(--signal-soft);
+    padding:4px 10px;
+    border-radius:4px;
+    margin-bottom:16px;
+  }
+  h2.headline{font-size:2rem;max-width:14ch;}
+  .sub{color:var(--muted);font-size:1.05rem;max-width:46ch;}
+
+  /* Missed-call-to-text signature strip */
+  .flow{
+    display:flex;
+    align-items:center;
+    gap:0;
+    margin:36px 0 8px;
+    flex-wrap:wrap;
+  }
+  .flow .node{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    font-size:.88rem;
+    min-width:150px;
+  }
+  .flow .node strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:.95rem;margin-bottom:2px;}
+  .flow .arrow{
+    color:var(--signal);
+    font-size:1.3rem;
+    padding:0 10px;
+  }
+
+  h3.section-title{font-size:1.1rem;letter-spacing:-.01em;}
+  ol.steps{list-style:none;margin:0;padding:0;counter-reset:step;}
+  ol.steps li{
+    counter-increment:step;
+    padding:16px 0 16px 44px;
+    position:relative;
+    border-top:1px solid var(--line);
+  }
+  ol.steps li:before{
+    content:counter(step);
+    position:absolute;
+    left:0;top:16px;
+    width:26px;height:26px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.8rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  ol.steps li strong{display:block;font-family:'Space Grotesk',sans-serif;margin-bottom:2px;}
+
+  /* Sample SMS preview */
+  .sms-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px;
+    max-width:340px;
+  }
+  .sms-card .label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;}
+  .bubble{
+    background:var(--ink);
+    color:#fff;
+    border-radius:14px 14px 14px 4px;
+    padding:12px 14px;
+    font-size:.92rem;
+    max-width:88%;
+  }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:20px;
+  }
+  .contact-grid .item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px;
+  }
+  .contact-grid .item span{display:block;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+  .contact-grid .item a{color:var(--ink);text-decoration:none;font-weight:500;}
+
+  /* Mandatory SMS consent disclosure — kept separate from Terms/Privacy on purpose */
+  .consent-box{
+    background:var(--card);
+    border:1px solid var(--signal);
+    border-radius:12px;
+    padding:22px;
+    margin-top:24px;
+  }
+  .consent-box h3{font-size:1rem;color:var(--signal);}
+  .consent-box p{font-size:.92rem;color:var(--ink);margin:0 0 10px;}
+  .consent-box p:last-child{margin-bottom:0;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 0 40px;
+    color:var(--muted);
+    font-size:.85rem;
+  }
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  footer a{color:var(--muted);text-decoration:underline;}
+
+  @media (max-width:520px){
+    .contact-grid{grid-template-columns:1fr;}
+    h2.headline{font-size:1.6rem;}
+    .flow{flex-direction:column;align-items:flex-start;}
+    .flow .arrow{transform:rotate(90deg);padding:6px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <!-- CRITICAL: Replace with your exact legal name as it appears on your PAN card.
+           This must match the Business Name on your Twilio Trust Hub profile exactly. -->
+      <h1>ANANT SHANKHDHAR</h1>
+      <p>AI Receptionist & Missed Call SMS Automation for Small Businesses</p>
+    </div>
+    <nav class="top">
+      <a href="#how-it-works">How it works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Missed call → instant text</span>
+    <h2 class="headline">Every missed call gets a reply — automatically.</h2>
+    <p class="sub">AI receptionist and automated SMS solutions for small service businesses.
+      
+    Our solutions help businesses respond to missed customer calls by continuing the conversation over SMS, reducing lost enquiries and improving customer response times.</p>
+
+    <div class="flow">
+      <div class="node"><strong>Customer calls</strong>Call goes unanswered</div>
+      <div class="arrow">→</div>
+      <div class="node"><strong>AI texts back</strong>Within seconds</div>
+      <div class="arrow">→</div>
+      <div class="node"><strong>Conversation continues</strong>By SMS</div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="wrap">
+    <h3 class="section-title">How it works</h3>
+    <ol class="steps">
+      <li><strong>A call comes in.</strong> A customer calls a participating business.</li>
+      <li><strong>If it's missed, a text goes out.</strong> If the call is missed, an automated SMS can be sent to the customer to continue the conversation.</li>
+      <li><strong>The automated assistant can continue the SMS conversation until the business is available to respond.</strong> It answers common questions and helps schedule follow-up, all over text, until a human takes over.</li>
+    </ol>
+  </div>
+</section>
+<section id="who-its-for">
+  <div class="wrap">
+    <h3 class="section-title">Designed for Service Businesses</h3>
+
+    <p>
+      Our AI receptionist solutions are intended for businesses that rely on incoming customer phone calls, including plumbing, HVAC, electrical, locksmith, appliance repair and similar home-service businesses.
+    </p>
+
+    <p>
+      These solutions help businesses continue customer conversations through SMS when calls cannot be answered immediately.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h3 class="section-title">What a customer receives</h3>
+    <div class="sms-card">
+      <div class="label">Sample message</div>
+      <div class="bubble">Hi! Sorry we missed your call.
+
+Thanks for contacting us. How can we help you today?
+
+Reply STOP to opt out.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h3 class="section-title">Contact</h3>
+    <div class="contact-grid">
+      <div class="item">
+        <span>Email</span>
+        <!-- Replace with your real contact email -->
+        <a href="mailto:anantshankhdhar8@gmail.com">anantshankhdhar8@gmail.com</a>
+      </div>
+      <div class="item">
+        <span>Business phone</span>
+        <!-- Replace once your Twilio toll-free number is assigned -->
+        <a href="tel:+18335455790">+18335455790</a>
+      </div>
+    </div>
+
+    <div class="consent-box">
+      <h3>Text messaging consent</h3>
+      <p>If you contact our business by phone or SMS using <strong>+1 833-545-5790</strong>, we may respond using SMS, including automated replies if your call is missed. Messages are sent only in connection with your enquiry.</p>
+      <p>Message frequency varies based on your interaction with our business. Message and data rates may apply. Reply <strong>STOP</strong> at any time to stop receiving messages, or <strong>HELP</strong> for assistance.</p>
+      <p>This consent is separate from, and not a condition of, agreeing to our <a href="terms.html">Terms of Service</a> or <a href="privacy.html">Privacy Policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 ANANT SHANKHDHAR. All rights reserved.</span>
+    <span><a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
