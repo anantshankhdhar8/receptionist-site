@@ -146,6 +146,51 @@
   .consent-box p{font-size:.92rem;color:var(--ink);margin:0 0 10px;}
   .consent-box p:last-child{margin-bottom:0;}
 
+  .request-form{
+    margin-top:24px;
+    display:grid;
+    gap:18px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field label{
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.field input[type=text],
+.field input[type=email],
+.field input[type=tel]{
+    padding:12px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    font-size:.95rem;
+    background:white;
+}
+
+.field input[type=checkbox]{
+    margin-right:8px;
+}
+
+button{
+    width:220px;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:var(--ink);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
   footer{
     border-top:1px solid var(--line);
     padding:28px 0 40px;
@@ -219,6 +264,69 @@
     <p>
       These solutions help businesses continue customer conversations through SMS when calls cannot be answered immediately.
     </p>
+  </div>
+</section>
+<section id="request-information">
+  <div class="wrap">
+
+    <h3 class="section-title">Request Information</h3>
+
+    <p>
+      If you would like more information about our AI receptionist
+      services, complete the form below.
+    </p>
+
+    <form class="request-form">
+
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" placeholder="John Smith">
+      </div>
+
+      <div class="field">
+        <label>Business Name</label>
+        <input type="text" placeholder="ABC Plumbing">
+      </div>
+
+      <div class="field">
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="+1 555 555 5555">
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="john@example.com">
+      </div>
+
+      <div class="field">
+        <label>
+          <input type="checkbox">
+
+          I agree to receive SMS messages from
+          <strong>ANANT SHANKHDHAR</strong>
+          regarding my enquiry and requested services.
+
+          Message frequency varies.
+
+          Message and data rates may apply.
+
+          Reply <strong>STOP</strong> to opt out.
+
+          Reply <strong>HELP</strong> for assistance.
+
+          I have read the
+          <a href="privacy.html">Privacy Policy</a>
+          and
+          <a href="terms.html">Terms of Service</a>.
+        </label>
+      </div>
+
+      <button type="button">
+        Request Information
+      </button>
+
+    </form>
+
   </div>
 </section>
 
